@@ -1,7 +1,7 @@
 package redis
 
 import (
-	"crbrox/store/test"
+	"github.com/crbrox/store/test"
 	"testing"
 	"time"
 )

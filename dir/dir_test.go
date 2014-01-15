@@ -1,8 +1,8 @@
 package dir
 
 import (
-	"crbrox/store"
-	"crbrox/store/test"
+	"github.com/crbrox/store"
+	"github.com/crbrox/store/test"
 	"os"
 	"testing"
 )

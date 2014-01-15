@@ -1,7 +1,7 @@
 package test
 
 import (
-	"crbrox/store"
+	"github.com/crbrox/store"
 	"reflect"
 	"sort"
 	"testing"
