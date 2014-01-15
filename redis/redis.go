@@ -37,8 +37,6 @@ func NewStore(options StoreOptions) *Store {
 			},
 			TestOnBorrow: func(c redis.Conn, t time.Time) error {
 				return nil
-				_, err := c.Do("PING")
-				return err
 			},
 		},
 	}
