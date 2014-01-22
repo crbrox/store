@@ -6,18 +6,17 @@ import (
 )
 
 type Store struct {
-	data     map[string][]byte
-	makeOnce sync.Once
-	rwm      sync.RWMutex
+	data map[string][]byte
+	rwm  sync.RWMutex
 }
 
-func (mem *Store) createOnce() {
-	mem.makeOnce.Do(func() {
-		mem.data = make(map[string][]byte)
-	})
+func NewStore() *Store {
+	mem := new(Store)
+	mem.data = make(map[string][]byte)
+	return mem
 }
+
 func (mem *Store) Put(id string, data []byte) (e error) {
-	mem.createOnce()
 	mem.rwm.Lock()
 	defer mem.rwm.Unlock()
 	myData := make([]byte, len(data))
@@ -26,14 +25,12 @@ func (mem *Store) Put(id string, data []byte) (e error) {
 	return nil
 }
 func (mem *Store) Delete(id string) error {
-	mem.createOnce()
 	mem.rwm.Lock()
 	defer mem.rwm.Unlock()
 	delete(mem.data, id)
 	return nil
 }
 func (mem *Store) Get(id string) (data []byte, e error) {
-	mem.createOnce()
 	mem.rwm.RLock()
 	defer mem.rwm.RUnlock()
 	data, ok := mem.data[id]

@@ -8,29 +8,29 @@ import (
 // Generic store tests
 
 func TestPutGet(t *testing.T) {
-	var mem = &Store{}
+	var mem = NewStore()
 	test.PutGet(mem, t)
 }
 func TestDelete(t *testing.T) {
-	var mem = &Store{}
+	var mem = NewStore()
 	test.Delete(mem, t)
 }
 func TestList(t *testing.T) {
-	var mem = &Store{}
+	var mem = NewStore()
 	test.List(mem, t)
 }
 func TestGetInexistent(t *testing.T) {
-	var mem = &Store{}
+	var mem = NewStore()
 	test.GetInexistent(mem, t)
 }
 
 func BenchmarkGet(b *testing.B) {
-	var store = &Store{}
+	var store = NewStore()
 	test.BenchmarkGet(store, b)
 }
 
 func BenchmarkPut(b *testing.B) {
-	var store = &Store{}
+	var store = NewStore()
 	test.BenchmarkPut(store, b)
 }
 
