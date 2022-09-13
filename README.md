@@ -1,7 +1,7 @@
 store
 =====
 
-Generic key-value store with implementations in the **gorgeous [Go][go]**. Mainly for testing (and for learning Go)
+Generic key-value store with implementations in **[Go][go]**. Mainly for testing (and for learning Go)
 
 [go]: http://golang.org
 
